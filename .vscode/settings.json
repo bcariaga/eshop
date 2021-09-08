@@ -1,0 +1,8 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "jest.enableCodeLens": true,
+  "jest.rootPath": "${workspaceFolder}/backend",
+  "jest.testExplorer": {
+    "enabled": true
+  }
+}
