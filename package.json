@@ -1,0 +1,30 @@
+{
+  "name": "eshop",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "workspaces": [
+    "./frontend/host",
+    "./frontend/product-detail-mf",
+    "./frontend/search-result-mf",
+    "./frontend/search-box-mf"
+  ],
+  "scripts": {
+    "start": "lerna run --parallel start",
+    "postinstall": "lerna exec --parallel npm install",
+    "build": "lerna run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcariaga/eshop.git"
+  },
+  "author": "Braian Cariaga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bcariaga/eshop/issues"
+  },
+  "homepage": "https://github.com/bcariaga/eshop#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

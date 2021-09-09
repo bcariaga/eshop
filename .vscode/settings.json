@@ -1,8 +1,10 @@
 {
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Night Owl",
   "jest.enableCodeLens": true,
   "jest.rootPath": "${workspaceFolder}/backend",
   "jest.testExplorer": {
     "enabled": true
-  }
+  },
+  "jshint.excludePath": "./frontend",
+  "eslint.workingDirectories": ["./frontend"]
 }
