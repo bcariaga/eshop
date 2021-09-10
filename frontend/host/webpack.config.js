@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
 
 module.exports = {
@@ -8,11 +9,12 @@ module.exports = {
   mode: "development",
   devServer: {
     static: path.join(__dirname, "dist"),
+    historyApiFallback: true,
     port: 3000,
   },
-  output: {
-    publicPath: "auto",
-  },
+  // output: {
+  //   publicPath: "auto",
+  // },
   module: {
     rules: [
       {
@@ -26,6 +28,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: "host",
       remotes: {
