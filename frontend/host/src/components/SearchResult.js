@@ -1,22 +1,16 @@
 import React, { Suspense, useEffect } from "react";
-import { Route, useLocation } from "wouter";
+import { Route } from "wouter";
+import { useSearchParams } from "../hooks/useSearchParams";
 const RemoteSearchResult = React.lazy(() => import("searchResult/App"));
 
 const SearchBox = () => {
-  const [location, setLocation] = useLocation();
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  const searchParams = useSearchParams();
+
   return (
     <Route path="/items">
-      {(params) => {
-        console.log(params);
-        return (
-          <Suspense fallback={"loading search results"}>
-            <RemoteSearchResult {...params} />
-          </Suspense>
-        );
-      }}
+      <Suspense fallback={"loading search results"}>
+        <RemoteSearchResult {...searchParams} />
+      </Suspense>
     </Route>
   );
 };

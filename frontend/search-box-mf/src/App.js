@@ -1,20 +1,8 @@
-import React from "react";
+import React from 'react';
+import SearchBox from '../components/SearchBox';
 
-const App = () => {
-  return (
-    <div>
-      <div
-        style={{
-          margin: "10px",
-          padding: "10px",
-          textAlign: "center",
-          backgroundColor: "greenyellow",
-        }}
-      >
-        <h1>Search box!</h1>
-      </div>
-    </div>
-  );
-};
+const dummySearch = (query) =>
+  console.warn('onSearch prop was not passed to search-box-mf!!!', query);
+const App = ({onSearch = dummySearch}) => (<SearchBox />);
 
 export default App;

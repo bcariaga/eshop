@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = () => {
+const App = ({ id }) => {
   return (
     <div>
       <div
@@ -12,6 +12,7 @@ const App = () => {
         }}
       >
         <h1>Product Detail</h1>
+        {id && <span>id: {id}</span>}
       </div>
     </div>
   );

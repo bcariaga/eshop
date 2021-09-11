@@ -1,6 +1,7 @@
 import React from "react";
 
-const App = () => {
+const App = ({ search }) => {
+  console.log({ mfSearch: search });
   return (
     <div>
       <div
@@ -12,6 +13,7 @@ const App = () => {
         }}
       >
         <h1>Search results</h1>
+        {search && <span>Query: {search}</span>}
       </div>
     </div>
   );
