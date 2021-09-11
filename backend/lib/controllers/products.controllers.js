@@ -1,9 +1,9 @@
-import e from "express";
+import e from 'express';
 import {
   findProducts,
   getProductDetail as fetchProductDetail,
-} from "../services/products.services.js";
-import { ok, notFound, badRequest } from "./commons/responses.commons.js";
+} from '../services/products.services.js';
+import {ok, notFound, badRequest} from './commons/responses.commons.js';
 
 /**
  * Find products.
@@ -14,7 +14,7 @@ export const getProducts = async (req, res) => {
   const query = req.query.search;
   const findResult = await findProducts(query);
   const anyProductFound = (findResult.items || []).length > 0;
-  //TODO: add helpers functions to req object: req.notFound(msg);
+  // TODO: add helpers functions to req object: req.notFound(msg);
   if (anyProductFound) {
     ok(res, findResult);
   } else {
@@ -30,9 +30,9 @@ export const getProducts = async (req, res) => {
 export const getProductDetail = async (req, res) => {
   const productId = req.params.id;
   if (!productId) {
-    badRequest(res, { msg: "Id is required!" });
+    badRequest(res, {msg: 'Id is required!'});
   }
-  var detail = await fetchProductDetail(productId);
+  const detail = await fetchProductDetail(productId);
 
   if (detail) {
     ok(res, detail);
