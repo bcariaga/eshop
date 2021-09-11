@@ -4,6 +4,7 @@
   "description": "",
   "private": "true",
   "workspaces": [
+    "./backend",
     "./frontend/host",
     "./frontend/product-detail-mf",
     "./frontend/search-result-mf",
@@ -25,6 +26,9 @@
   },
   "homepage": "https://github.com/bcariaga/eshop#readme",
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.25.1",
     "lerna": "^4.0.0"
   }
 }

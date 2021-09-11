@@ -6,5 +6,11 @@
     "enabled": true
   },
   "jshint.excludePath": "./frontend",
-  "eslint.workingDirectories": ["./frontend"]
+  "eslint.workingDirectories": [
+    "./frontend"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
 }
