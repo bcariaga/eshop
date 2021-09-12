@@ -37,6 +37,6 @@ export const getProductDetail = async (req, res) => {
   if (detail) {
     ok(res, detail);
   } else {
-    notFound(res, `not found product with id: ${query}`);
+    notFound(res, `not found product with id: ${productId}`);
   }
 };

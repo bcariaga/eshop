@@ -1,15 +1,15 @@
-import { httpClient } from "./commons/httpclient.js";
-import { mapToProduct, mapToProductDetail } from "../models/product.js";
-import { mapToCategories } from "../models/category.js";
+import {httpClient} from './commons/httpclient.js';
+import {mapToProduct, mapToProductDetail} from '../models/product.js';
+import {mapToCategories} from '../models/category.js';
 /**
  * Finds products with query
  * @param {string} query search query to find products
- * @returns {any} findResult found
+ * @return {any} findResult found
  */
-export const findProducts = async (query = "") => {
+export const findProducts = async (query = '') => {
   try {
     const productsResponse = await httpClient.get(
-      `sites/MLA/search?q=${query}&limit=10` /* TODO: remove this hardcore (limit) when implements pagination. */
+        `sites/MLA/search?q=${query}&limit=10`, /* TODO: remove this hardcore (limit) when implements pagination. */
     );
     const productsData = productsResponse.data;
     return {
@@ -24,12 +24,12 @@ export const findProducts = async (query = "") => {
 
 export const getProductDetail = async (id) => {
   try {
-    const [{ value: produtDetailResult }, { value: productDescriptionResult }] =
+    const [{value: produtDetailResult}, {value: productDescriptionResult}] =
       await Promise.allSettled([getProduct(id), getProductDescription(id)]);
     return mapToProductDetail({
       ...produtDetailResult.data,
       ...productDescriptionResult.data,
-    }); //warning! if dtos have props with equal name will be substituted
+    }); // warning! if dtos have props with equal name will be substituted
   } catch (error) {
     console.error(error);
     return null;
@@ -39,14 +39,28 @@ export const getProductDetail = async (id) => {
 /**
  * Get the product by Id
  * @param {string} id Id of product
- * @returns {object} product
+ * @return {object} product
  */
-const getProduct = async (id = "") => await httpClient.get(`items/${id}`);
+const getProduct = async (id = '') => {
+  try {
+    return await httpClient.get(`items/${id}`);
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
 /**
  * Get the description of Product
  * @param {string} id Id of product
- * @returns description of product
+ * @return{any} description of product
  */
-const getProductDescription = async (id = "") =>
-  await httpClient.get(`items/${id}/description`);
+const getProductDescription = async (id = '') => {
+  try {
+    return await httpClient.get(`items/${id}/description`);
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+

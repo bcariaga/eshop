@@ -1,9 +1,9 @@
-import { mapToPrice } from "./price.js";
+import {mapToPrice} from './price.js';
 
 /**
  * maps api response (from https://api.mercadolibre.com/sites/MLA/search) to Product's model
  * @param {object} param0 "blob" object to create a Product object
- * @returns Product
+ * @return Product
  */
 export const mapToProduct = ({
   id,
@@ -12,11 +12,11 @@ export const mapToProduct = ({
   price,
   thumbnail,
   condition,
-  shipping: { free_shipping },
+  shipping: {free_shipping},
 }) => ({
   id: id,
   title: title,
-  price: mapToPrice({ currency_id, price }),
+  price: mapToPrice({currency_id, price}),
   picture: thumbnail,
   condition: condition,
   free_shipping: free_shipping,
@@ -29,7 +29,7 @@ export const mapToProductDetail = ({
   price,
   thumbnail,
   condition,
-  shipping: { free_shipping },
+  shipping: {free_shipping},
   sold_quantity,
   plain_text,
 }) => ({
@@ -40,7 +40,7 @@ export const mapToProductDetail = ({
     price,
     thumbnail,
     condition,
-    shipping: { free_shipping },
+    shipping: {free_shipping},
   }),
   sold_quantity,
   description: plain_text,
