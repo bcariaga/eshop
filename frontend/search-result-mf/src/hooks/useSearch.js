@@ -4,10 +4,9 @@ const controller = new AbortController();
 const emmitCancelSignal = () => controller.abort();
 
 
-export const useProductSearch = (searchQuery) => {
-  const [productsSearch, setProductsSearch] = useState('');
+export const useSearch = (searchQuery) => {
+  const [productsSearch, setProductsSearch] = useState(null);
   useEffect(() => {
-    console.log({searchQuery});
     const search = async () => {
       const searchResult = await getProducts(searchQuery);
       setProductsSearch(searchResult);

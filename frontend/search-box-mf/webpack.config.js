@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
-const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
@@ -32,7 +31,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv(),
     new ModuleFederationPlugin({
       name: 'searchBox',
       filename: 'remoteEntry.js',

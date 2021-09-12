@@ -12,9 +12,6 @@ module.exports = {
     historyApiFallback: true,
     port: 3000,
   },
-  // output: {
-  //   publicPath: "auto",
-  // },
   module: {
     rules: [
       {

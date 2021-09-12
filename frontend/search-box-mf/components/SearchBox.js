@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {useProductSearch} from '../hooks/useProductSeach';
 
 const dummySearch = (query) =>
   console.warn('onSearch prop was not passed to search-box-mf!!!', query);
 
+const SearchBox = ({onSearch = dummySearch, current}) => {
+  const [searchQuery, setSearchQuery] = useState(current);
 
-const SearchBox = ({onSearch = dummySearch}) => {
-  const [searchQuery, setSearchQuery] = useState(null);
-  const [searchResult, cancelSearch] = useProductSearch(searchQuery);
-  useEffect(() => {
-    console.log(searchResult);
-  }, [searchResult]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const search = e.target.search.value;
@@ -21,7 +16,6 @@ const SearchBox = ({onSearch = dummySearch}) => {
 
   useEffect(() => {
     onSearch(searchQuery);
-    () => cancelSearch();
   }, [searchQuery]);
 
 
@@ -37,11 +31,12 @@ const SearchBox = ({onSearch = dummySearch}) => {
       >
         <h1>Search box!</h1>
         <form onSubmit={handleSubmit}>
-          <input name="search" type="text" />
+          <input name="search" type="text" defaultValue={current}/>
           <input type="submit" value="buscar" />
         </form>
       </div>
     </div>
   );
 };
+
 export default SearchBox;

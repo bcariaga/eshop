@@ -1,18 +1,25 @@
-import React, { Suspense, useEffect } from "react";
-import { Route } from "wouter";
-import { useSearchParams } from "../hooks/useSearchParams";
-const RemoteSearchResult = React.lazy(() => import("searchResult/App"));
+import React, {Suspense, useEffect, useState} from 'react';
+import {getSearchParamsAsObject} from '../commons/locationHelpers';
+import {useRoute, useLocation} from 'wouter';
 
-const SearchBox = () => {
-  const searchParams = useSearchParams();
-
+const RemoteSearchResult = React.lazy(() => import('searchResult/App'));
+const route = '/items';
+const SearchResult = () => {
+  const [match, params] = useRoute(route);
+  const [, setLocation] = useLocation();
+  const [search, setSearch] = useState(getSearchParamsAsObject());
+  useEffect(() => {
+    setSearch(getSearchParamsAsObject().search);
+  }, [match, params]);
+  const handleClickItem = (itemId) => {
+    setLocation(`/items/${itemId}`);
+  };
   return (
-    <Route path="/items">
-      <Suspense fallback={"loading search results"}>
-        <RemoteSearchResult {...searchParams} />
-      </Suspense>
-    </Route>
+    match &&
+        <Suspense fallback={'loading search results'}>
+          <RemoteSearchResult query={search} onClickItem={handleClickItem} />
+        </Suspense>
   );
 };
 
-export default SearchBox;
+export default SearchResult;

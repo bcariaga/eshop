@@ -1,22 +1,10 @@
-import React from "react";
+import React from 'react';
+import Search from './components/Search';
 
-const App = ({ search }) => {
-  console.log({ mfSearch: search });
-  return (
-    <div>
-      <div
-        style={{
-          margin: "10px",
-          padding: "10px",
-          textAlign: "center",
-          backgroundColor: "greenyellow",
-        }}
-      >
-        <h1>Search results</h1>
-        {search && <span>Query: {search}</span>}
-      </div>
-    </div>
-  );
+const App = ({query, onClickItem}) => {
+  console.log({mfQuery: query});
+  return (<Search query={query} onClickItem={onClickItem}/>);
 };
+
 
 export default App;

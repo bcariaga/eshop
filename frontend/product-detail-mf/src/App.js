@@ -1,20 +1,9 @@
-import React from "react";
+import React from 'react';
+import Detail from './components/Detail';
 
-const App = ({ id }) => {
+const App = ({id}) => {
   return (
-    <div>
-      <div
-        style={{
-          margin: "10px",
-          padding: "10px",
-          textAlign: "center",
-          backgroundColor: "greenyellow",
-        }}
-      >
-        <h1>Product Detail</h1>
-        {id && <span>id: {id}</span>}
-      </div>
-    </div>
+    <Detail id={id}/>
   );
 };
 
