@@ -28,6 +28,7 @@ export const mapToProductDetail = ({
   currency_id,
   price,
   thumbnail,
+  pictures,
   condition,
   shipping: {free_shipping},
   sold_quantity,
@@ -44,4 +45,5 @@ export const mapToProductDetail = ({
   }),
   sold_quantity,
   description: plain_text,
+  pictures: pictures.map((p) => p.url),
 });
