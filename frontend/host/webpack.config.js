@@ -33,7 +33,11 @@ module.exports = {
         productDetail: 'productDetail@[productDetailUrl]/remoteEntry.js',
         searchResult: 'searchResult@[searchResultUrl]/remoteEntry.js',
       },
-      shared: {'react': {singleton: true}, 'react-dom': {singleton: true}},
+      shared:
+      {
+        'react': {singleton: true},
+        'react-dom': {singleton: true},
+      },
     }),
     new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({

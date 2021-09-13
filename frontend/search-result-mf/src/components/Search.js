@@ -8,3 +8,5 @@ const Search = ({query, onClickItem: handleClickItem}) => {
 };
 
 export default Search;
+
+Search.propTypes = SearchResult.propTypes;
