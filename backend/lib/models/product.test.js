@@ -7,7 +7,7 @@ describe("Product", () => {
       title: "Mini Nodemcu D1 Wifi Esp8266 Esp12f 4mb Uart Arduino",
       price: {
         currency: "ARS",
-        ammount: 710,
+        amount: 710,
         decimals: 0,
       },
       picture: "http://http2.mlstatic.com/D_846619-MLA40017465853_122019-I.jpg",
@@ -26,7 +26,7 @@ describe("Product", () => {
       title: "Nodemcu Wifi Esp8266 Lua Gpio Pwm I2c Uart Arduino Todomicro",
       price: {
         currency: "ARS",
-        ammount: 645,
+        amount: 645,
         decimals: 0,
       },
       picture: "http://http2.mlstatic.com/D_935555-MLA46494007936_062021-I.jpg",

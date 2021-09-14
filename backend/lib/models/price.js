@@ -10,7 +10,7 @@ export const mapToPrice = ({ currency_id, price }) => {
 
   return {
     currency: currency_id,
-    ammount: priceAsCurrency.dollars(),
+    amount: priceAsCurrency.dollars(),
     decimals: priceAsCurrency.cents(),
   };
 };

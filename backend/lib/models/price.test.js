@@ -6,7 +6,7 @@ describe("Price", () => {
 
     expect(mapToPrice(apiResponse)).toMatchObject({
       currency: apiResponse.currency_id,
-      ammount: parseInt(amount),
+      amount: parseInt(amount),
       decimals: parseInt(decimals || 0),
     });
   });

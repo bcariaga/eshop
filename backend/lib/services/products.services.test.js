@@ -24,7 +24,7 @@ describe("Products Service", () => {
             title: " Placa Uno R3 2014 Atmega328p-au Improved Version",
             price: {
               currency: "ARS",
-              ammount: 1080,
+              amount: 1080,
               decimals: 0,
             },
             picture:
@@ -38,7 +38,7 @@ describe("Products Service", () => {
               "Arduino Uno R3 Atmega328 Incluye Cable Usb Chip Desmontable",
             price: {
               currency: "ARS",
-              ammount: 1350,
+              amount: 1350,
               decimals: 99,
             },
             picture:
@@ -78,7 +78,7 @@ describe("Products Service", () => {
         title: "Nodemcu Wifi Esp8266 Lua Gpio Pwm I2c Uart Arduino Todomicro",
         price: {
           currency: "ARS",
-          ammount: 645,
+          amount: 645,
           decimals: 0,
         },
         picture:

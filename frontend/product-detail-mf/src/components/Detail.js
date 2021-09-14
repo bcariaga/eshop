@@ -36,7 +36,7 @@ const Detail = ({id}) => {
               <h3>{detail.title}</h3>
             </div>
             <div>
-              <h1>$ {detail.price.ammount},{detail.price.decimals}</h1>
+              <h1>$ {detail.price.amount},{detail.price.decimals}</h1>
             </div>
             <div>
               {detail.free_shipping && <p>Envio gratis!</p>}

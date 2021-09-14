@@ -1,36 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {createUseStyles} from 'react-jss';
+import ItemPrice from './ItemPrice';
+
+
 const Item = ({
   id,
   picture,
   title,
-  price: {ammount, decimals},
+  price: {amount, decimals, currency},
   // eslint-disable-next-line camelcase
   free_shipping,
+  condition,
   onClickItem: handleClickItem,
 }) => {
-  const {oneItem, itemImage, itemImageWrapper, itemInfo, price} = useStyles();
+  const {
+    oneItem,
+    itemImage,
+    itemImageWrapper,
+    itemInfo,
+  } = useStyles();
+
   return (
-    <div
-      className={oneItem}
-      onClick={() => handleClickItem(id)}
-    >
+    <div className={oneItem} onClick={() => handleClickItem(id)}>
       <div className={itemImageWrapper}>
         <img src={picture} className={itemImage} />
       </div>
       <div className={itemInfo}>
+        <ItemPrice {...{currency, amount, decimals, condition}}/>
         <div>
           <p>{title}</p>
         </div>
-        <div className={price}>
-          <h4>{ammount}</h4>
-          <span>{decimals}</span>
 
-        </div>
         <div>
           {/* eslint-disable-next-line camelcase*/}
-          <p>{free_shipping ? 'envio gratis' : ''}</p>
+          {free_shipping && <span title="envio gratis!">envio gratis! 🚛</span>}
         </div>
       </div>
     </div>
@@ -45,6 +49,7 @@ Item.propTypes = {
   title: PropTypes.string,
   price: PropTypes.object,
   free_shipping: PropTypes.bool,
+  condition: PropTypes.string,
   onClickItem: PropTypes.func,
 };
 const useStyles = createUseStyles({
@@ -72,9 +77,8 @@ const useStyles = createUseStyles({
   itemInfo: {
     display: 'flex',
     flexDirection: 'column',
+    padding: 8,
+    justifyContent: 'space-around',
   },
-  price: {
-    fontSize: 'large',
-    display: 'inline',
-  },
+
 });

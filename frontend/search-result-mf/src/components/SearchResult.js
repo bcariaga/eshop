@@ -5,7 +5,7 @@ import Item from './Item';
 import {createUseStyles} from 'react-jss';
 
 const SearchResult = ({items, categories, onClickItem: handleClickItem}) => {
-  const {wrapper, itemList, oneItem, itemImage, itemImageWrapper, itemInfo} =
+  const {wrapper, itemList} =
     useStyles();
   return (
     <div className={wrapper}>
