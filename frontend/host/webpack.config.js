@@ -7,6 +7,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index',
   mode: 'development',
+  devtool: 'source-map',
   devServer: {
     static: path.join(__dirname, 'dist'),
     historyApiFallback: true,
@@ -32,11 +33,14 @@ module.exports = {
         searchBox: 'searchBox@[searchBoxUrl]/remoteEntry.js',
         productDetail: 'productDetail@[productDetailUrl]/remoteEntry.js',
         searchResult: 'searchResult@[searchResultUrl]/remoteEntry.js',
+        lib: 'lib@[libUrl]/remoteEntry.js',
       },
       shared:
       {
         'react': {singleton: true},
         'react-dom': {singleton: true},
+        'lib': {singleton: true},
+
       },
     }),
     new ExternalTemplateRemotesPlugin(),

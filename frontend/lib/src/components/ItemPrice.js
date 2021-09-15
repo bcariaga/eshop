@@ -17,7 +17,9 @@ const ItemPrice = ({currency, amount, decimals, condition}) => {
       <h3 className={amountCls}>{formatAmount(amount)}</h3>
       <small className={decimalsCls}>{formatDecimals(decimals)}</small>
       {/* eslint-disable-next-line camelcase*/}
-      {condition === 'new' && <small className={badge}>nuevo</small>}
+      {condition &&
+        condition === 'new' &&
+          <small className={badge}>nuevo</small>}
     </div>
   );
 };

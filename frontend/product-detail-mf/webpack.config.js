@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
+const ExternalTemplateRemotesPlugin = require('external-remotes-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = (env) => ({
   entry: './src/index',
   mode: 'development',
+  devtool: 'source-map',
   devServer: {
     static: path.join(__dirname, 'dist'),
     port: 3003,
@@ -34,7 +36,11 @@ module.exports = (env) => ({
         './App': './src/App',
       },
       shared: {'react': {singleton: true}, 'react-dom': {singleton: true}},
+      remotes: {
+        lib: 'lib@[libUrl]/remoteEntry.js',
+      },
     }),
+    new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),

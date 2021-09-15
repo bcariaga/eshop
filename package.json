@@ -6,6 +6,7 @@
   "workspaces": [
     "./backend",
     "./frontend/host",
+    "./frontend/lib",
     "./frontend/product-detail-mf",
     "./frontend/search-result-mf",
     "./frontend/search-box-mf"

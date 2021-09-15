@@ -1,24 +1,17 @@
-/* eslint-disable max-len */
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
-const path = require('path');
 
 module.exports = {
   entry: './src/index',
   mode: 'development',
   devtool: 'source-map',
   devServer: {
-    static: path.join(__dirname, 'dist'),
-    port: 3001,
-    headers: { // cors TODO: add correct origin headers, from .env?
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-    },
+    port: 3004,
   },
   output: {
     publicPath: 'auto',
+    clean: true,
   },
+
   module: {
     rules: [
       {
@@ -33,15 +26,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'searchBox',
+      name: 'lib',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './ItemPrice': './src/components/ItemPrice',
       },
       shared: {'react': {singleton: true}, 'react-dom': {singleton: true}},
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
     }),
   ],
 };
