@@ -1,10 +1,17 @@
-import React, {Suspense, useEffect} from 'react';
+import React, {Suspense} from 'react';
 import PropTypes from 'prop-types';
 import {useProdutDetail} from '../hooks/useProductDetail';
 import {createUseStyles} from 'react-jss';
 const ItemPrice = React.lazy(() => import('lib/ItemPrice'));
+const Categories = React.lazy(() => import('lib/Categories'));
+import {
+  mobileStyles,
+  tabletStyles,
+  laptopStyles,
+  largeStyles,
+} from 'lib/mediaQueries';
 
-const Detail = ({id}) => {
+const Detail = ({id, categories}) => {
   const [detail] = useProdutDetail(id);
   const {
     card,
@@ -20,13 +27,19 @@ const Detail = ({id}) => {
     solds,
     titleCls,
   } = useStyles();
-  useEffect(() => {
-    console.log({pepe: 'pepe', detail});
-  }, [detail]);
+
   return (
     detail && (
       <div className={wrapper}>
+        {categories && <Suspense fallback={'cargando categorias...'}>
+          <div>
+            <Categories
+              categories={categories}
+            />
+          </div>
+        </Suspense>}
         <div className={card}>
+
           <div className={cardBody}>
             <div className={item}>
               <div className={imageWrapper}>
@@ -34,6 +47,7 @@ const Detail = ({id}) => {
               </div>
             </div>
             <div className={item}>
+
               <div className={info}>
                 <div>
                   {/* y si no es nuevo pero tampoco usado? */}
@@ -75,7 +89,7 @@ const Detail = ({id}) => {
 
           <div className={description}>
             <h3>Descripcion del producto</h3>
-            {detail.description}
+            <p>{detail.description}</p>
           </div>
         </div>
       </div>
@@ -87,12 +101,15 @@ export default Detail;
 
 Detail.propTypes = {
   id: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.string),
 };
 
 const useStyles = createUseStyles({
   'wrapper': {
     display: 'flex',
     justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   'cardBody': {
@@ -100,7 +117,7 @@ const useStyles = createUseStyles({
     flexDirection: 'row',
   },
   'card': {
-    maxWidth: '75vw',
+    maxWidth: '50vw',
     margin: 8,
     padding: 8,
     background: '#fff',
@@ -114,14 +131,51 @@ const useStyles = createUseStyles({
     height: '100%',
     padding: 8,
   },
-  '@media screen and (max-width: 720px)': {
+  ...mobileStyles({
+    'card': {
+      maxWidth: '90vw',
+    },
+    'imageWrapper': {
+      maxWidth: 100,
+    },
+    'cardBody': {
+      flexDirection: 'column',
+    },
+  }),
+  ...tabletStyles({
+    'card': {
+      maxWidth: '80vw',
+    },
+    'imageWrapper': {
+      maxWidth: 150,
+    },
+    'cardBody': {
+      flexDirection: 'column',
+    },
+  }),
+  ...laptopStyles({
+    card: {
+      maxWidth: '70vw',
+    },
     imageWrapper: {
       maxWidth: 300,
     },
-    wrapper: {
-      flexDirection: 'column',
+  }),
+  ...largeStyles({
+    card: {
+      maxWidth: '50vw',
+    },
+    imageWrapper: {
+      maxWidth: 700,
+    },
+  }),
+  'imageWrapper': {
+    'maxWidth': 800,
+    '& img': {
+      width: '100%',
     },
   },
+
   'info': {
     display: 'flex',
     flexDirection: 'column',

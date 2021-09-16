@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
+const ExternalTemplateRemotesPlugin = require('external-remotes-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
@@ -28,6 +29,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
+    new ExternalTemplateRemotesPlugin(),
     new ModuleFederationPlugin({
       name: 'searchResult',
       filename: 'remoteEntry.js',
@@ -35,6 +37,9 @@ module.exports = {
         './App': './src/App',
       },
       shared: {'react': {singleton: true}, 'react-dom': {singleton: true}},
+      remotes: {
+        lib: 'lib@[libUrl]/remoteEntry.js',
+      },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

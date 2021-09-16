@@ -1,2 +1,2 @@
-window.libUrl ='http://localhost:3004';
+window.libUrl = 'http://localhost:3004';
 import('./bootstrap');

@@ -30,6 +30,8 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './ItemPrice': './src/components/ItemPrice',
+        './Categories': './src/components/Categories',
+        './mediaQueries': './src/styles/mediaQueries',
       },
       shared: {'react': {singleton: true}, 'react-dom': {singleton: true}},
     }),

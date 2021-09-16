@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import PropTypes from 'prop-types';
 import {createUseStyles} from 'react-jss';
-import ItemPrice from './ItemPrice';
-
+const ItemPrice = React.lazy(() => import('lib/ItemPrice'));
+import {
+  mobileStyles,
+  tabletStyles,
+  laptopStyles,
+  largeStyles,
+} from 'lib/mediaQueries';
 
 const Item = ({
   id,
@@ -27,7 +32,14 @@ const Item = ({
         <img src={picture} className={itemImage} />
       </div>
       <div className={itemInfo}>
-        <ItemPrice {...{currency, amount, decimals, condition}}/>
+        <Suspense fallback={'cargando precio...'}>
+          <ItemPrice
+            currency={currency}
+            amount={amount}
+            decimals={decimals}
+            condition={condition}
+          />
+        </Suspense>
         <div>
           <p>{title}</p>
         </div>
@@ -66,13 +78,16 @@ const useStyles = createUseStyles({
     '&:hover': {
       boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
     },
+    'width': '100%',
+    'maxWidth': 850,
+    'minWidth': 600,
   },
   itemImageWrapper: {
     padding: 16,
   },
   itemImage: {
-    width: 160,
-    height: 160,
+    width: 180,
+    height: 180,
   },
   itemInfo: {
     display: 'flex',
@@ -80,5 +95,53 @@ const useStyles = createUseStyles({
     padding: 8,
     justifyContent: 'space-around',
   },
+  ...mobileStyles({
 
+    'itemImage': {
+      width: 100,
+      height: 100,
+    },
+    'itemImageWrapper': {
+      padding: 4,
+    },
+    'itemInfo': {
+      padding: 0,
+    },
+  }),
+  ...tabletStyles({
+    'itemImage': {
+      width: 120,
+      height: 120,
+    },
+    'itemImageWrapper': {
+      padding: 4,
+    },
+    'itemInfo': {
+      padding: 0,
+    },
+  }),
+  ...laptopStyles({
+    'itemImage': {
+      width: 170,
+      height: 170,
+    },
+    'itemImageWrapper': {
+      padding: 8,
+    },
+    'itemInfo': {
+      padding: 16,
+    },
+  }),
+  ...largeStyles({
+    'itemImage': {
+      width: 190,
+      height: 190,
+    },
+    'itemImageWrapper': {
+      padding: 8,
+    },
+    'itemInfo': {
+      padding: 16,
+    },
+  }),
 });
