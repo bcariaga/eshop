@@ -1,0 +1,22 @@
+{
+    "author": {
+      "name": "Braian",
+      "lastname": "Cariaga"
+    },
+    "id": "MLA921441574",
+    "title": "Arduino Uno R3 Atmega328 Incluye Cable Usb Chip Desmontable",
+    "price": {
+      "currency": "ARS",
+      "amount": 1140,
+      "decimals": 0
+    },
+    "picture": "http://http2.mlstatic.com/D_791316-MLA46701651207_072021-I.jpg",
+    "condition": "new",
+    "free_shipping": false,
+    "sold_quantity": 500,
+    "description": "Arduino Uno R3 Con Cable Usb\n(las imagenes son ilustrativas)\nDescripción del Producto:\n\n-El Arduino UNO esta recomendado para principiantes en la electrónica y el mundo de arduino\n-Basado en el microcontrolador ATMEGA328\n-Rango de alimentación de 7 a 12 volts recomendado\n-14 entradas/salidas digitales, 6 canales de PWM\n-6 Entradas analógicas\n-32 K de memoria Flash para programas\n-Frecuencia de reloj de 16 Mhz\n\nEl Arduino UNO R3 es la última versión del hardware del proyecto de código abierto Arduino, además se trata de la tarjeta más popular en internet. Esta plataforma de computación física esta basada en una sencilla placa de I/O (Entradas y salidas) y un entorno de desarrollo libre (open source) que podemos descargar de forma totalmente gratuita.\n\nArduino es además toda una comunidad que ha desarrollado software y hardware para permitir realizaraplicaciones complejas de manera rápida e intuitiva. Por lo tanto, la plataforma arduino es ideal para aquellas personas que desean iniciarse en la programación de microcontroladores, ya sean estudiantes, profesores, hobistas, artistas, etc. Ya que el entorno de programación puede descargarse de manera gratuita desde la página oficial del proyecto y la documentación, ejemplos y proyectos completos abundan en internet.",
+    "pictures": [
+      "http://http2.mlstatic.com/D_791316-MLA46701651207_072021-O.jpg",
+      "http://http2.mlstatic.com/D_882566-MLA46084606974_052021-O.jpg"
+    ]
+  }

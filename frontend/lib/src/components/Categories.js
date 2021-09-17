@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import {createUseStyles} from 'react-jss';
 const getSeparator = (index) => index !== 0 ? ' - ' : '';
 const Categories = ({categories = []}) => {
-  const {categoriesList} = useStyles();
+  const {categoriesList, wrapper} = useStyles();
 
   return (
-    <ul className={categoriesList}>
-      {categories.map((c, i) => (
-        <li key={`category-${i}`}>{` ${getSeparator(i)} ${c}`}</li>
-      ))}
-    </ul>
+    <div className={wrapper}>
+      <ul className={categoriesList}>
+        {categories.map((c, i) => (
+          <li key={`category-${i}`}>{` ${getSeparator(i)} ${c}`}</li>
+        ))}
+      </ul>
+    </div>
+
   );
 };
 
@@ -31,6 +34,10 @@ const useStyles = createUseStyles({
     fontWeight: 200,
     color: 'GrayText',
     alignSelf: 'flex-start',
+  },
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 });
 

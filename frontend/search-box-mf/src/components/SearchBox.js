@@ -23,12 +23,16 @@ const SearchBox = ({onSearch, current}) => {
   return (
     <nav className={nav}>
       <div className={logo} onClick={handleLogoClick}></div>
-      <form onSubmit={handleSubmit} className={ searchForm}>
+      <form
+        data-testid="search-form"
+        onSubmit={handleSubmit}
+        className={searchForm}>
         <input
+          data-testid="search"
           name="search"
           type="text"
           defaultValue={current}
-          className={ searchInput}/>
+          className={searchInput}/>
         <input
           type="submit"
           value="🔍" // not need icons library :P

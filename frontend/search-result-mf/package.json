@@ -15,7 +15,10 @@
     },
     "devDependencies": {
         "@babel/core": "^7.14.3",
-        "@babel/preset-react": "^7.13.13",
+        "@babel/preset-env": "^7.15.6",
+        "@babel/preset-react": "^7.14.5",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^12.1.0",
         "babel-loader": "^8.2.2",
         "dotenv-webpack": "^7.0.3",
         "external-remotes-plugin": "^1.0.0",

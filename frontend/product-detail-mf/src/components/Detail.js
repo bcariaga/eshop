@@ -10,9 +10,9 @@ import {
   laptopStyles,
   largeStyles,
 } from 'lib/mediaQueries';
-
 const Detail = ({id, categories}) => {
   const [detail] = useProdutDetail(id);
+
   const {
     card,
     cardBody,
@@ -31,13 +31,12 @@ const Detail = ({id, categories}) => {
   return (
     detail && (
       <div className={wrapper}>
-        {categories && <Suspense fallback={'cargando categorias...'}>
-          <div>
+        {categories &&
+          <Suspense fallback={'cargando categorias...'}>
             <Categories
               categories={categories}
             />
-          </div>
-        </Suspense>}
+          </Suspense>}
         <div className={card}>
 
           <div className={cardBody}>
@@ -62,7 +61,7 @@ const Detail = ({id, categories}) => {
                   </small>
                 </div>
                 <div className={ titleCls}>
-                  <h3>{detail.title}</h3>
+                  <h3 data-testid="title">{detail.title}</h3>
                 </div>
                 <div>
                   <Suspense fallback={'cargando precio...'}>
@@ -89,7 +88,7 @@ const Detail = ({id, categories}) => {
 
           <div className={description}>
             <h3>Descripcion del producto</h3>
-            <p>{detail.description}</p>
+            <p data-testid="description">{detail.description}</p>
           </div>
         </div>
       </div>

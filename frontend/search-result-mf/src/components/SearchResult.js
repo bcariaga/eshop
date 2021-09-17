@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import PropTypes from 'prop-types';
-import Categories from './Categories';
 import Item from './Item';
 import {createUseStyles} from 'react-jss';
+const Categories = React.lazy(() => import('lib/Categories'));
 import {
   mobileStyles,
   tabletStyles,
@@ -16,7 +16,12 @@ const SearchResult = ({items, categories, onClickItem: handleClickItem}) => {
     useStyles();
   return (
     <div className={wrapper}>
-      <Categories categories={categories} />
+      {categories &&
+          <Suspense fallback={'cargando categorias...'}>
+            <Categories
+              categories={categories}
+            />
+          </Suspense>}
       {items && (
         <div className={itemList}>
           {items.map((item, i) => (

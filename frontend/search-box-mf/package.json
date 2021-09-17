@@ -6,7 +6,11 @@
     "scripts": {
         "start": "webpack serve",
         "build": "webpack --mode production",
+        "test": "jest --collectCoverage",
         "lint": "eslint"
+    },
+    "jest": {
+        "environment": "jsdom"
     },
     "dependencies": {
         "react": "^17.0.2",
@@ -15,11 +19,15 @@
     },
     "devDependencies": {
         "@babel/core": "^7.14.3",
-        "@babel/preset-react": "^7.13.13",
+        "@babel/preset-env": "^7.15.6",
+        "@babel/preset-react": "^7.14.5",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^12.1.0",
         "babel-loader": "^8.2.2",
         "dotenv-webpack": "^7.0.3",
         "external-remotes-plugin": "^1.0.0",
         "html-webpack-plugin": "^5.3.1",
+        "react-test-renderer": "^17.0.2",
         "webpack": "^5.38.1",
         "webpack-cli": "^4.7.2",
         "webpack-dev-server": "^4.0.0"
