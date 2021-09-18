@@ -23,9 +23,12 @@ const SearchResult = ({items, categories, onClickItem: handleClickItem}) => {
             />
           </Suspense>}
       {items && (
-        <div className={itemList}>
+        <div className={itemList} data-testid="items">
           {items.map((item, i) => (
-            <Item key={`item-${i}`} {...item} onClickItem={handleClickItem}/>
+            <Item
+              key={`item-${i}`}
+              {...item}
+              onClickItem={handleClickItem}/>
           ))}
         </div>
       )}

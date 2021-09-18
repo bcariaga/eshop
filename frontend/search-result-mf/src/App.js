@@ -3,7 +3,6 @@ import Search from './components/Search';
 import PropTypes from 'prop-types';
 
 const App = ({query, onClickItem, onSearch}) => {
-  console.log({mfQuery: query});
   return <Search query={query} onClickItem={onClickItem} onSearch={onSearch} />;
 };
 

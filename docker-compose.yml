@@ -1,0 +1,42 @@
+version: '3'
+services: 
+  backend:
+    build: 
+      context: ./backend
+    ports: 
+      - "4000:4000"
+    container_name: "eshop-backend"
+    env_file: ./backend/.env
+  mf-host:
+    build: 
+      context: ./frontend/host
+    ports: 
+      - "3000:80"
+    container_name: "eshop-mf-host"
+    env_file: ./frontend/host/.env
+  mf-lib:
+    build: 
+      context: ./frontend/lib
+    ports: 
+      - "3004:80"
+    container_name: "eshop-mf-lib"
+  mf-product-detail:
+    build: 
+      context: ./frontend/product-detail-mf
+    ports: 
+      - "3003:80"
+    container_name: "eshop-mf-product-detail"
+    env_file: ./frontend/product-detail-mf/.env
+  mf-search-box:
+    build: 
+      context: ./frontend/search-box-mf
+    ports: 
+      - "3001:80"
+    container_name: "eshop-mf-search-box"
+  mf-search-result:
+    build: 
+      context: ./frontend/search-result-mf
+    ports: 
+      - "3002:80"
+    container_name: "eshop-mf-search-result"
+    env_file: ./frontend/search-result-mf/.env

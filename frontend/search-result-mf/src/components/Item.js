@@ -27,9 +27,12 @@ const Item = ({
   } = useStyles();
 
   return (
-    <div className={oneItem} onClick={() => handleClickItem(id)}>
+    <div
+      className={oneItem}
+      onClick={() => handleClickItem(id)}
+      data-testid="item">
       <div className={itemImageWrapper}>
-        <img src={picture} className={itemImage} />
+        <img data-testid="picture" src={picture} className={itemImage} />
       </div>
       <div className={itemInfo}>
         <Suspense fallback={'cargando precio...'}>
@@ -41,12 +44,15 @@ const Item = ({
           />
         </Suspense>
         <div>
-          <p>{title}</p>
+          <p data-testid="title" >{title}</p>
         </div>
 
         <div>
           {/* eslint-disable-next-line camelcase*/}
-          {free_shipping && <span title="envio gratis!">envio gratis! 🚛</span>}
+          {free_shipping && <span
+            data-testid="shipping"
+            title="envio gratis!">envio gratis! 🚛</span>
+          }
         </div>
       </div>
     </div>

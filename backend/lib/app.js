@@ -7,7 +7,7 @@ const port = process.env.PORT || 4001;
 app.use(cors()); // TODO: configure this!
 app.use('/api/items', productsRouter);
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Backend up!');
 });
 
 app.listen(port, () => {

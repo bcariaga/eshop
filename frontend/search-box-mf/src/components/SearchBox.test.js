@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -29,7 +28,7 @@ test('should set the current prop to the current value of search input', () => {
   const {getByTestId} = render(
       <SearchBox current={ expectedSearchParam} onSearch={mockSubmit} />,
   );
-  const input = getByTestId(search);
+  const input = getByTestId('search');
   expect(mockSubmit).toHaveBeenCalled();
   expect(input.value).toEqual(expectedSearchParam);
 });
