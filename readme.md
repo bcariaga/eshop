@@ -2,7 +2,7 @@
 
 
 ## TL;DR
-para correr el proyecto anda directo a [Setup & Run](#Setup-&-Run)
+para correr el proyecto anda directo a [Setup & Run](#setup--run)
 
 
 ## Intro
