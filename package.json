@@ -13,9 +13,15 @@
   ],
   "scripts": {
     "start": "lerna run --parallel start",
+    "start:docker": "npm run build && npm run build:docker",
+    "stop:docker": "docker-compose down && npm run print:dockerDown",
     "postinstall": "lerna exec --parallel npm install",
     "test": "lerna exec npm test",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "build:docker": "docker-compose up -d && npm run print:dockerUp && npm run print:dockerDownMsg",
+    "print:dockerUp": "echo \" ---> Look the app at http://localhost:3000 🚀\" \n",
+    "print:dockerDown": "echo \"The app is down... 🛑\" \n",
+    "print:dockerDownMsg": "echo \"😉 To down containers run: npm run stop:docker \"  \n \n"
   },
   "repository": {
     "type": "git",
