@@ -67,7 +67,7 @@ El proyecto se forma por **5 microfonts**:
 - `lib`: este modulo contiene los componentes que se comparten, por ejemplo: `<ItemPrice/>` que se usa tanto en la busqueda como en el detalle de un producto. O bien, funciones de ayuda, como para generar `styles` con media queries (gracias a `ReactJSS`).
 - `product-detail-mf`: componentes para ver el detalle de un item. Recibe un ID, busca en el backend el detalle y lo renderiza.
 - `search-box-mf`: barra de busqueda, maneja el estado del form de busqueda. Se opto por un form para resolver la navegacion y no tener que manejar el estado en **_componentes controlados_**. Cuando se realiza una busqueda ejecuta una funcion que se pasa por parametros.
-- `search-resul-mf`: **busca productos** y los **renderiza** aislando esta feature en un modulo 😁
+- `search-result-mf`: **busca productos** y los **renderiza** aislando esta feature en un modulo 😁
 
 <sub> *_se pueden cargar solos, pero hay componentes que sin pasarle las props correctas no serian funcionales (nada que con un poco de ❤️ no se pueda arreglar)_ <sub>
 
